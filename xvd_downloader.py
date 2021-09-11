@@ -11,7 +11,9 @@ def get_downloadable_info(url):
     print(f"Parsing video URL from {url}")
     urls = []
 
-    r = request.urlopen(url)
+    req = request.Request(url)
+    # req.set_proxy("PROXY_IP_AND_PORT", type=str)
+    r = request.urlopen(req)
 
     for line in r.read().decode(r.headers.get_content_charset()).splitlines():
         if "html5player.setVideoUrl" in line:
