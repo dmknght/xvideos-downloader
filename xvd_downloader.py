@@ -12,7 +12,7 @@ def get_downloadable_info(url):
     urls = []
 
     req = request.Request(url)
-    # req.set_proxy("PROXY_IP_AND_PORT", type=str)
+    # req.set_proxy("PROXY_IP_AND_PORT", type="http")
     r = request.urlopen(req)
 
     for line in r.read().decode(r.headers.get_content_charset()).splitlines():
